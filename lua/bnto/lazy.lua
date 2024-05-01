@@ -11,4 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("bnto.plugins")
+require("lazy").setup({
+  { import = "bnto.plugins" },
+  { import = "bnto.plugins.lsp" },
+})
