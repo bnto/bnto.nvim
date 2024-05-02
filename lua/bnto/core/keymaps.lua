@@ -21,6 +21,7 @@ keymap.set("n", "<C-k>", "<C-u>zz")
 -- save & quit
 keymap.set("n", "<leader>q", "<CMD>q<CR>", { desc = "Quit current" })
 keymap.set("n", "<leader>s", "<CMD>w<CR>", { desc = "Save Document" })
+keymap.set("n", "<leader>Q", "<CMD>q!<CR>", { desc = "Force quit"})
 
 -- relaod config
 keymap.set("n", "<leader><leader><CR>", "<CMD>so $MYVIMRC<CR>")
