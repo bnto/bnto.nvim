@@ -28,6 +28,9 @@ opt.signcolumn = "yes"
 -- backspace
 opt.backspace = "indent,eol,start"
 
+-- hide/show some paths
+opt.path:append({ "**" })
+opt.wildignore:append({ "*/node_modules/*" })
 -- clipboard
 opt.clipboard:append("unnamedplus") -- use system clipboard
 

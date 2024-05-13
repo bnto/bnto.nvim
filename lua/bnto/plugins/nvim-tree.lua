@@ -10,17 +10,18 @@ return {
 
     nvimtree.setup({
       filters = {
-        custom = { ".DS_Store" },
+        custom = { ".DS_Store", "node_modules" },
       },
       git = {
-        ignore = false
+        ignore = false,
       },
     })
+
+    -- vim.g.nvim_tree_ignore = { "node_modules" }
 
     -- set keymaps
     local keymap = vim.keymap
 
     keymap.set("n", "<leader>b", "<CMD>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer" })
-  end
-
+  end,
 }
