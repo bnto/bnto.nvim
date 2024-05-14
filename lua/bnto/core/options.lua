@@ -18,6 +18,7 @@ opt.smartcase = true
 -- line settings
 opt.cursorline = true
 opt.scrolloff = 10
+opt.cmdheight = 0 -- hide the command line
 -- opt.wrap = false
 
 -- termguicolors
@@ -31,6 +32,7 @@ opt.backspace = "indent,eol,start"
 -- hide/show some paths
 opt.path:append({ "**" })
 opt.wildignore:append({ "*/node_modules/*" })
+
 -- clipboard
 opt.clipboard:append("unnamedplus") -- use system clipboard
 
@@ -38,6 +40,8 @@ opt.clipboard:append("unnamedplus") -- use system clipboard
 opt.splitright = true
 opt.splitbelow = true
 
+-- hint about whitespaces
+vim.opt.list = true
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
