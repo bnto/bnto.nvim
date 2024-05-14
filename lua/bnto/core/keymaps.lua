@@ -13,6 +13,11 @@ keymap.set("n", "<leader>o", "<C-w>o", { desc = "Close other windows" })
 -- <C-w>v : split vertically
 -- <C-w>s : split horizontally
 -- <CMD>close<CR> : close split
+-- keymap.set("n", "<leader>6", ":ls<CR>:b<Space>")
+
+-- remove jumping through documents
+keymap.set("n", "<C-o>", "<Nop>")
+keymap.set("n", "<C-p>", "<Nop>")
 
 -- page jumps
 keymap.set("n", "<C-j>", "<C-d>zz")
