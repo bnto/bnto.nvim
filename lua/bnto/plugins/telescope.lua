@@ -28,6 +28,9 @@ return {
     -- set keymaps
     vim.keymap.set("n", "<leader>f", "<CMD>Telescope find_files<CR>", { desc = "Find files in cwd" })
     vim.keymap.set("n", "<leader>F", "<CMD>Telescope live_grep<CR>", { desc = "Grep word in cwd" })
+    vim.keymap.set("n", "<leader>b", "<CMD>Telescope buffers<CR>", { desc = "Show buffers" })
+    vim.keymap.set("n", "<leader>B", "<CMD>Telescope oldfiles<CR>", { desc = "Find in recent files" })
+    vim.keymap.set("n", "<leader>p", "<CMD>Telescope registers<CR>", { desc = "Show registers" })
 
     -- other commands to consider keymapping:
     -- "Telescope oldfiles" - Find recent files
