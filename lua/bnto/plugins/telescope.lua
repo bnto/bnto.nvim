@@ -21,6 +21,12 @@ return {
           },
         },
       },
+      pickers = {
+        buffers = {
+          ignore_current_buffer = true,
+          sort_lastused = true,
+        },
+      },
     })
 
     telescope.load_extension("fzf")
