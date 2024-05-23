@@ -19,6 +19,19 @@ keymap.set("n", "<leader>o", "<C-w>o", { desc = "Close other windows" })
 keymap.set("n", "<C-o>", "<Nop>")
 keymap.set("n", "<C-p>", "<Nop>")
 
+-- disable arrow key
+keymap.set("n", "<Up>", "<Nop>")
+keymap.set("n", "<Down>", "<Nop>")
+keymap.set("n", "<Left>", "<Nop>")
+keymap.set("n", "<Right>", "<Nop>")
+
+-- Reselect visual selection after indenting.
+keymap.set("v", "<", "<gv")
+keymap.set("v", ">", ">gv")
+-- Easy insertion of a trailing ; or , from insert mode.
+keymap.set('i', ';;', '<Esc>A;<Esc>')
+keymap.set('i', ',,', '<Esc>A,<Esc>')
+
 -- page jumps
 keymap.set("n", "<C-j>", "<C-d>zz")
 keymap.set("n", "<C-k>", "<C-u>zz")
