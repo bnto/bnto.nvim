@@ -15,6 +15,25 @@ return {
       git = {
         ignore = false,
       },
+      actions = {
+        open_file = {
+          quit_on_open = true,
+        },
+      },
+      view = {
+        float = {
+          enable = true,
+          quit_on_focus_loss = false,
+          open_win_config = {
+            relative = "editor",
+            border = "rounded",
+            width = 30,
+            height = 30,
+            row = 1,
+            col = 1,
+          },
+        },
+      },
     })
 
     -- vim.g.nvim_tree_ignore = { "node_modules" }
