@@ -9,11 +9,14 @@ keymap.set("n", "<ESC>", "<CMD>nohlsearch<CR>")
 
 -- window management
 keymap.set("n", "<leader>o", "<C-w>o", { desc = "Close other windows" })
--- NOTE default keymaps for split : 
+
+-- NOTE: default keymaps for split :
 -- <C-w>v : split vertically
 -- <C-w>s : split horizontally
 -- <CMD>close<CR> : close split
+
 -- keymap.set("n", "<leader>6", ":ls<CR>:b<Space>")
+keymap.set("n", "<leader>6", "<C-6>")
 
 -- remove jumping through documents
 keymap.set("n", "<C-o>", "<Nop>")
@@ -25,6 +28,7 @@ keymap.set("n", "<Down>", "<Nop>")
 keymap.set("n", "<Left>", "<Nop>")
 keymap.set("n", "<Right>", "<Nop>")
 
+-- NOTE: Some interesting keymaps:
 -- Reselect visual selection after indenting.
 keymap.set("v", "<", "<gv")
 keymap.set("v", ">", ">gv")
