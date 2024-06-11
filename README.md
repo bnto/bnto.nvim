@@ -41,3 +41,8 @@ git clone https://github.com/bnto/bnto.nvim.git "${XDG_CONFIG_HOME:-$HOME/.confi
 `<leader>B` Search recent files
 
 `<leader>p` Search registers
+
+### Script commands
+
+`<C-f>f` Open project in tmux
+`<C-f>z` Open zettelkasten

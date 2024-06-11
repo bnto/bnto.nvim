@@ -18,6 +18,10 @@ keymap.set("n", "<leader>o", "<C-w>o", { desc = "Close other windows" })
 -- keymap.set("n", "<leader>6", ":ls<CR>:b<Space>")
 keymap.set("n", "<leader>6", "<C-6>")
 
+-- keymaps for tmux and zk
+keymap.set("n", "<C-f>f", "<cmd>silent !tmux neww ~/.scripts/./tmux-session.sh<CR>")
+keymap.set("n", "<C-f>z", "<cmd>silent !tmux neww zk edit -i<CR>")
+
 -- remove jumping through documents
 keymap.set("n", "<C-o>", "<Nop>")
 keymap.set("n", "<C-p>", "<Nop>")
