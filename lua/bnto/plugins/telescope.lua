@@ -21,8 +21,21 @@ return {
             -- ["<esc>"] = actions.close, -- close telescope immediately
           },
         },
+        file_ignore_patterns = {
+          "node_modules",
+          ".git",
+        },
       },
       pickers = {
+        find_files = {
+          -- ignore_current_buffer = true,
+          hidden = true,
+        },
+        live_grep = {
+          additional_args = function()
+            return { "--hidden" }
+          end,
+        },
         buffers = {
           ignore_current_buffer = true,
           sort_lastused = true,

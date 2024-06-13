@@ -11,6 +11,7 @@ return {
     nvimtree.setup({
       filters = {
         custom = { ".DS_Store", "node_modules" },
+        dotfiles = false,
       },
       git = {
         ignore = false,
