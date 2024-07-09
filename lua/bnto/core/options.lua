@@ -27,6 +27,12 @@ opt.termguicolors = true
 opt.signcolumn = "yes"
 -- opt.background = "dark"
 
+-- Use undo history
+opt.undofile = true
+opt.undodir = os.getenv("HOME") .. "/.undodir"
+opt.swapfile = false
+opt.backup = false
+
 -- backspace
 opt.backspace = "indent,eol,start"
 
