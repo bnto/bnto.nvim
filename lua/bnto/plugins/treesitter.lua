@@ -28,6 +28,7 @@ return {
         "dockerfile",
         "gitignore",
         "yaml",
+        "python",
       },
       incremental_selection = {
         enable = true,
