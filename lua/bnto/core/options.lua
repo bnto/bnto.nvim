@@ -27,6 +27,9 @@ opt.termguicolors = true
 opt.signcolumn = "yes"
 -- opt.background = "dark"
 
+-- terminal option
+opt.shell = "bash -l"
+
 -- Use undo history
 opt.undofile = true
 opt.undodir = os.getenv("HOME") .. "/.undodir"
