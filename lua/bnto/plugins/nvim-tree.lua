@@ -5,8 +5,8 @@ return {
     local nvimtree = require("nvim-tree")
 
     -- bypass default file explorer
-    vim.g.loaded_netrw = 1
-    vim.g.loaded_netrwPlugin = 1
+    -- vim.g.loaded_netrw = 1
+    -- vim.g.loaded_netrwPlugin = 1
 
     nvimtree.setup({
       filters = {
