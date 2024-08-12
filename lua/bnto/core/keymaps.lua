@@ -16,6 +16,8 @@ keymap.set("n", "<leader>6", "<C-6>")
 -- keymaps for tmux and zk
 keymap.set("n", "<C-f>f", "<cmd>silent !tmux neww ,tmux-session<CR>")
 keymap.set("n", "<C-f>z", "<cmd>silent !tmux neww zk edit -i<CR>")
+-- open terminal in split and entrer insert mode
+keymap.set("n", "<leader>t", "<CMD>split +terminal<CR>i", { desc = "Open terminal" })
 
 -- remove jumping through documents
 keymap.set("n", "<C-o>", "<Nop>")
@@ -30,16 +32,18 @@ keymap.set("n", "<Right>", "<Nop>")
 -- Reselect visual selection after indenting.
 keymap.set("v", "<", "<gv")
 keymap.set("v", ">", ">gv")
+
 -- Move text up and down
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- Easy insertion of a trailing ; or , from insert mode.
 keymap.set("i", ";;", "<Esc>A;<Esc>")
 keymap.set("i", ",,", "<Esc>A,<Esc>")
 
 -- page jumps
-keymap.set("n", "<C-j>", "<C-d>zz")
-keymap.set("n", "<C-k>", "<C-u>zz")
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- copy to clipboard
 keymap.set("n", "<leader>y", "\"+y")
