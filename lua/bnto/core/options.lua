@@ -44,7 +44,7 @@ opt.path:append({ "**" })
 opt.wildignore:append({ "*/node_modules/*" })
 
 -- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard
+-- opt.clipboard:append("unnamedplus") -- use system clipboard
 
 -- split windows
 opt.splitright = true

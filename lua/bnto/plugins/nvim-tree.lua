@@ -39,9 +39,5 @@ return {
 
     -- vim.g.nvim_tree_ignore = { "node_modules" }
 
-    -- set keymaps
-    local keymap = vim.keymap
-
-    keymap.set("n", "<leader>O", "<CMD>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer" })
   end,
 }

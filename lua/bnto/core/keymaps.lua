@@ -2,13 +2,10 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
-keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+keymap.set("i", "jk", "<ESC>")
 
 -- clear highlight on Escape
 keymap.set("n", "<ESC>", "<CMD>nohlsearch<CR>")
-
--- window management
-keymap.set("n", "<leader>o", "<C-w>o", { desc = "Close other windows" })
 
 -- keymap.set("n", "<leader>6", ":ls<CR>:b<Space>")
 keymap.set("n", "<leader>6", "<C-6>")
@@ -17,7 +14,7 @@ keymap.set("n", "<leader>6", "<C-6>")
 keymap.set("n", "<C-f>f", "<cmd>silent !tmux neww ,tmux-session<CR>")
 keymap.set("n", "<C-f>z", "<cmd>silent !tmux neww zk edit -i<CR>")
 -- open terminal in split and entrer insert mode
-keymap.set("n", "<leader>t", "<CMD>split +terminal<CR>i", { desc = "Open terminal" })
+keymap.set("n", "<leader>t", "<CMD>split +terminal<CR>i")
 
 -- remove jumping through documents
 keymap.set("n", "<C-o>", "<Nop>")
@@ -50,10 +47,20 @@ keymap.set("n", "<leader>y", "\"+y")
 keymap.set("v", "<leader>y", "\"+y")
 keymap.set("n", "<leader>Y", "\"+Y")
 
+-- paste from buffer
+keymap.set("i", "<c-v>", function()
+  require("telescope.builtin").registers()
+end, { remap = true, silent = false })
+
+-- Open file tree
+-- keymap.set("n", "<leader>O", "<CMD>Oil --float<CR>")
+keymap.set("n", "<leader>o", "<CMD>NvimTreeFindFileToggle<CR>")
+keymap.set("n", "<leader>O", "<CMD>lefta 35vs +Oil<CR>")
+
 -- save & quit
-keymap.set("n", "<leader>q", "<CMD>q<CR>", { desc = "Quit current" })
-keymap.set("n", "<leader>s", "<CMD>w<CR>", { desc = "Save Document" })
-keymap.set("n", "<leader>Q", "<CMD>q!<CR>", { desc = "Force quit" })
+keymap.set("n", "<leader>q", "<CMD>q<CR>")
+keymap.set("n", "<leader>s", "<CMD>w<CR>")
+keymap.set("n", "<leader>Q", "<CMD>q!<CR>")
 
 -- relaod config
 -- keymap.set("n", "<leader><leader><CR>", "<CMD>so $MYVIMRC<CR>")
