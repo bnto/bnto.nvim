@@ -28,6 +28,6 @@ return {
         sync = false,
         timeout_ms = 1000,
       })
-    end, { desc = "Format file or visual selection" })
+    end)
   end,
 }
