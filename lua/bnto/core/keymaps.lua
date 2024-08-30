@@ -58,9 +58,7 @@ keymap.set("n", "<leader>o", "<CMD>NvimTreeFindFileToggle<CR>")
 keymap.set("n", "<leader>O", "<CMD>lefta 35vs +Oil<CR>")
 
 -- save & quit
-keymap.set("n", "<leader>q", "<CMD>q<CR>")
-keymap.set("n", "<leader>s", "<CMD>w<CR>")
-keymap.set("n", "<leader>Q", "<CMD>q!<CR>")
+keymap.set("n", "<leader>w", "<CMD>w<CR>")
 
 -- relaod config
 -- keymap.set("n", "<leader><leader><CR>", "<CMD>so $MYVIMRC<CR>")
