@@ -18,7 +18,7 @@ return {
           i = {
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-j>"] = actions.move_selection_next,
-            -- ["<esc>"] = actions.close, -- close telescope immediately
+            ["<esc>"] = actions.close, -- close telescope immediately
           },
         },
         file_ignore_patterns = {
@@ -29,6 +29,7 @@ return {
       pickers = {
         find_files = {
           -- ignore_current_buffer = true,
+          find_command = { "rg", "--files", "--sortr=modified" },
           hidden = true,
         },
         live_grep = {
