@@ -17,7 +17,9 @@ return {
         -- Search = { fg = "text", bg = "text", blend = 20, inherit = false },
       },
     })
-    vim.cmd("colorscheme rose-pine-moon")
+
+    vim.cmd.colorscheme("rose-pine-dawn")
+
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
       border = "rounded",
     })
