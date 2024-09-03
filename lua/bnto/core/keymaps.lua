@@ -47,17 +47,12 @@ keymap.set("n", "<leader>y", "\"+y")
 keymap.set("v", "<leader>y", "\"+y")
 keymap.set("n", "<leader>Y", "\"+Y")
 
--- paste from buffer
-keymap.set("i", "<c-v>", function()
-  require("telescope.builtin").registers()
-end, { remap = true, silent = false })
-
 -- Open file tree
 -- keymap.set("n", "<leader>O", "<CMD>Oil --float<CR>")
 keymap.set("n", "<leader>o", "<CMD>NvimTreeFindFileToggle<CR>")
 keymap.set("n", "<leader>O", "<CMD>lefta 35vs +Oil<CR>")
 
--- save & quit
+-- save
 keymap.set("n", "<leader>w", "<CMD>w<CR>")
 
 -- relaod config
