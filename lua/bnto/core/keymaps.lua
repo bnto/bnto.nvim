@@ -2,19 +2,20 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
-keymap.set("i", "jk", "<ESC>")
-
 -- clear highlight on Escape
 keymap.set("n", "<ESC>", "<CMD>nohlsearch<CR>")
-
--- keymap.set("n", "<leader>6", ":ls<CR>:b<Space>")
-keymap.set("n", "<leader>6", "<C-6>")
 
 -- keymaps for tmux and zk
 keymap.set("n", "<C-f>f", "<cmd>silent !tmux neww ,tmux-session<CR>")
 keymap.set("n", "<C-f>z", "<cmd>silent !tmux neww zk edit -i<CR>")
+keymap.set("n", "<C-f>t", "<cmd>silent !tmux neww ,task<CR>")
+keymap.set("n", "<C-f>gg", "<cmd>silent !tmux neww lazygit<CR>")
+
 -- open terminal in split and entrer insert mode
 keymap.set("n", "<leader>t", "<CMD>split +terminal<CR>i")
+
+-- open fugitive
+keymap.set("n", "<leader>gg", "<CMD>Git<CR>")
 
 -- remove jumping through documents
 keymap.set("n", "<C-o>", "<Nop>")
@@ -48,7 +49,6 @@ keymap.set("v", "<leader>y", "\"+y")
 keymap.set("n", "<leader>Y", "\"+Y")
 
 -- Open file tree
--- keymap.set("n", "<leader>O", "<CMD>Oil --float<CR>")
 keymap.set("n", "<leader>o", "<CMD>NvimTreeFindFileToggle<CR>")
 keymap.set("n", "<leader>O", "<CMD>lefta 35vs +Oil<CR>")
 
