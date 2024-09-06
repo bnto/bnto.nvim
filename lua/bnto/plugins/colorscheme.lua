@@ -7,13 +7,8 @@ return {
       styles = {
         transparency = true,
       },
-      groups = {
-        -- border = "love",
-        panel = "love",
-      },
       highlight_groups = {
-        -- CurSearch = { fg = "base", bg = "text", inherit = false },
-        -- Search = { fg = "text", bg = "text", blend = 20, inherit = false },
+        TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
       },
     })
 
