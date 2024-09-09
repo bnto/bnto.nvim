@@ -11,7 +11,11 @@ return {
 
       -- git stage / unstage hunk
       map("v", "<leader>gs", function()
-        gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+        if vim.bo.modified then
+          print("Please save changes before staging!")
+        else
+          gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+        end
       end, "")
       map("n", "<leader>gu", gs.undo_stage_hunk)
       map("n", "<leader>gd", gs.diffthis)
