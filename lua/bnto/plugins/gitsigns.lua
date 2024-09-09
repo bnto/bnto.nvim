@@ -14,7 +14,7 @@ return {
         gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
       end, "")
       map("n", "<leader>gu", gs.undo_stage_hunk)
-
+      map("n", "<leader>gd", gs.diffthis)
     end,
   },
 }
