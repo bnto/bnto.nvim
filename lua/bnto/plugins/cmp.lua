@@ -83,8 +83,7 @@ return {
         ["<C-y>"] = cmp.mapping.confirm({ select = true }),
 
         -- Manually trigger a completion from nvim-cmp.
-        -- TO CHECK !
-        ["<C-Space>"] = cmp.mapping.complete({}),
+        -- ["<C-Space>"] = cmp.mapping.complete({}),
 
         ["<C-l>"] = cmp.mapping(function()
           if luasnip.expand_or_locally_jumpable() then
