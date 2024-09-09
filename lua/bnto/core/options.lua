@@ -25,7 +25,6 @@ opt.wrap = false
 -- termguicolors
 opt.termguicolors = true
 opt.signcolumn = "yes"
--- opt.background = "dark"
 
 -- terminal option
 opt.shell = "bash -l"
@@ -43,15 +42,13 @@ opt.backspace = "indent,eol,start"
 opt.path:append({ "**" })
 opt.wildignore:append({ "*/node_modules/*" })
 
--- clipboard
--- opt.clipboard:append("unnamedplus") -- use system clipboard
-
 -- split windows
 opt.splitright = true
 opt.splitbelow = true
 
 -- hint about whitespaces
-vim.opt.list = true
+opt.list = true
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Markdown
-vim.opt.conceallevel = 2
+opt.conceallevel = 2

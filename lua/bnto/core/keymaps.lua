@@ -5,7 +5,7 @@ local keymap = vim.keymap
 -- clear highlight on Escape
 keymap.set("n", "<ESC>", "<CMD>nohlsearch<CR>")
 
--- keymaps for tmux and zk
+-- keymaps shared with tmux
 keymap.set("n", "<C-f>f", "<cmd>silent !tmux neww ,tmux-session<CR>")
 keymap.set("n", "<C-f>z", "<cmd>silent !tmux neww zk edit -i<CR>")
 keymap.set("n", "<C-f>t", "<cmd>silent !tmux neww ,task<CR>")
