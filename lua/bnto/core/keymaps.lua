@@ -54,6 +54,3 @@ keymap.set("n", "<leader>O", "<CMD>lefta 35vs +Oil<CR>")
 
 -- save
 keymap.set("n", "<leader>w", "<CMD>w<CR>")
-
--- relaod config
--- keymap.set("n", "<leader><leader><CR>", "<CMD>so $MYVIMRC<CR>")
