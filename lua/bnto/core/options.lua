@@ -49,6 +49,7 @@ opt.splitbelow = true
 -- hint about whitespaces
 opt.list = true
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.colorcolumn = "80"
 
 -- Markdown
 opt.conceallevel = 2
