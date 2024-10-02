@@ -50,7 +50,7 @@ keymap.set("n", "<leader>Y", "\"+Y")
 
 -- Open file tree
 keymap.set("n", "<leader>o", "<CMD>NvimTreeFindFileToggle<CR>")
-keymap.set("n", "<leader>O", "<CMD>lefta 35vs +Oil<CR>")
+keymap.set("n", "<leader>O", "<CMD>Oil --float<CR>")
 
 -- save
 keymap.set("n", "<leader>w", "<CMD>w<CR>")
