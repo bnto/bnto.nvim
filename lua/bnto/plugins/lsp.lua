@@ -63,7 +63,11 @@ return {
     }
 
     -- Ensure the servers and tools above are installed
-    require("mason").setup()
+    require("mason").setup({
+      ui = {
+        border = "rounded",
+      },
+    })
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       "stylua", -- Used to format Lua code
@@ -86,5 +90,9 @@ return {
         end,
       },
     })
+
+    require("lspconfig.ui.windows").default_options = {
+      border = "rounded",
+    }
   end,
 }
