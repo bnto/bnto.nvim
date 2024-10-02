@@ -8,6 +8,15 @@ return {
       view_options = {
         show_hidden = true,
       },
+      keymaps = {
+        ["<CR>"] = "actions.select",
+        ["q"] = "actions.close",
+      },
+      float = {
+        -- padding = 5,
+        max_width = 50,
+        border = "rounded",
+      },
     })
   end,
 }
