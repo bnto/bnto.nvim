@@ -53,10 +53,5 @@ return {
     vim.keymap.set("n", "<leader>B", "<CMD>Telescope oldfiles<CR>") -- Find in recent files
     vim.keymap.set("n", "<leader>p", "<CMD>Telescope registers<CR>") -- Show registers
     vim.keymap.set("n", "<leader>T", "<CMD>Telescope filetypes<CR>") -- Set filetype
-
-    -- other commands to consider keymapping:
-    -- "Telescope oldfiles" - Find recent files
-    -- "Telescope live_grep" - Find string in cwd
-    -- "Telescope grep_string" - Find string under cursor in cwd
   end,
 }
