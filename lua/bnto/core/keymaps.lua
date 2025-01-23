@@ -11,9 +11,6 @@ keymap.set("n", "<C-f>z", "<cmd>silent !tmux neww zk edit -i<CR>")
 keymap.set("n", "<C-f>t", "<cmd>silent !tmux neww ,task<CR>")
 keymap.set("n", "<C-f>g", "<cmd>silent !tmux neww lazygit<CR>")
 
--- open terminal in split and entrer insert mode
-keymap.set("n", "<leader>t", "<CMD>split +terminal<CR>i")
-
 -- open fugitive
 keymap.set("n", "<leader>gg", "<CMD>Git<CR>")
 
