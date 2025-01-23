@@ -8,7 +8,29 @@ return {
     -- vim.g.loaded_netrw = 1
     -- vim.g.loaded_netrwPlugin = 1
 
+    local function my_on_attach(bufnr)
+      local api = require("nvim-tree.api")
+
+      local function opts(desc)
+        return {
+          desc = desc,
+          buffer = bufnr,
+          noremap = true,
+          silent = true,
+          nowait = true,
+        }
+      end
+
+      -- default mappings
+      api.config.mappings.default_on_attach(bufnr)
+
+      -- custom mappings
+      vim.keymap.set("n", "<space>", api.node.open.edit, opts("") )
+      vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("") )
+    end
+
     nvimtree.setup({
+      on_attach = my_on_attach,
       filters = {
         custom = { ".DS_Store", "node_modules" },
         dotfiles = false,
