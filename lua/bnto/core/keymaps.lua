@@ -43,14 +43,6 @@ keymap.set("i", ",,", "<Esc>A,<Esc>")
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
 
--- copy to clipboard
-keymap.set("n", "<leader>y", "\"+y")
-keymap.set("v", "<leader>y", "\"+y")
-keymap.set("n", "<leader>Y", "\"+Y")
-
 -- Open file tree
 keymap.set("n", "<leader>o", "<CMD>NvimTreeFindFileToggle<CR>")
 keymap.set("n", "<leader>O", "<CMD>Oil --float<CR>")
-
--- save
-keymap.set("n", "<leader>w", "<CMD>w<CR>")
