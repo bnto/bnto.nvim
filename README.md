@@ -23,11 +23,9 @@ git clone https://github.com/bnto/bnto.nvim.git "${XDG_CONFIG_HOME:-$HOME/.confi
 
 ### Window navigation
 
-`<leader>w` Save current buffer to file
+`<leader>o` Toggle nvim-tree file explorer
 
-`<leader>o` Open floating file explorer
-
-`<leader>O` Toggle file explorer in sidebar
+`<leader>O` Toggle oil file explorer
 
 ### File navigation
 
