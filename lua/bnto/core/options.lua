@@ -19,7 +19,7 @@ opt.smartcase = true
 -- line settings
 opt.cursorline = true
 opt.scrolloff = 10
-opt.cmdheight = 0 -- hide the command line
+-- opt.cmdheight = 0 -- hide the command line
 opt.wrap = false
 
 -- termguicolors
