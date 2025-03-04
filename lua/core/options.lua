@@ -12,6 +12,9 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 
+-- load .editorconfig file
+vim.g.editorconfig = true
+
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
