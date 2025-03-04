@@ -15,6 +15,8 @@ return {
 
     vim.cmd.colorscheme("rose-pine-dawn")
 
+    vim.cmd("highlight QuickFixLine guibg=#faf4ed ctermbg=none")
+    vim.cmd("highlight QuickFixLine guifg=#d7827e ctermfg=none")
     vim.lsp.handlers["textDocument/hover"] =
       vim.lsp.with(vim.lsp.handlers.hover, {
         border = "rounded",

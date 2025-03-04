@@ -20,6 +20,7 @@ return {
       end, "")
       map("n", "<leader>gu", gs.undo_stage_hunk)
       map("n", "<leader>gd", gs.diffthis)
+      map("n", "<leader>gD", ":GlLog -- %<CR>")
     end,
   },
 }
