@@ -44,8 +44,9 @@ return {
         },
       },
       view = {
+        width = 60,
         float = {
-          enable = true,
+          enable = false,
           quit_on_focus_loss = true,
           open_win_config = {
             relative = "editor",
