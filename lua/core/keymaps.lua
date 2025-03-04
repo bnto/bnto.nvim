@@ -8,7 +8,7 @@ keymap.set("n", "<ESC>", "<CMD>nohlsearch<CR>")
 -- keymaps shared with tmux
 keymap.set("n", "<C-f>f", "<cmd>silent !tmux neww ,tmux-session<CR>")
 keymap.set("n", "<C-f>z", "<cmd>silent !tmux neww zk edit -i<CR>")
-keymap.set("n", "<C-f>t", "<cmd>silent !tmux neww ,task<CR>")
+keymap.set("n", "<C-f>t", "<cmd>silent !tmux neww vit<CR>")
 keymap.set("n", "<C-f>g", "<cmd>silent !tmux neww lazygit<CR>")
 
 -- open fugitive
