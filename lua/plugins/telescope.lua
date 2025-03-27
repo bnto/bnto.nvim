@@ -24,12 +24,13 @@ return {
         file_ignore_patterns = {
           "node_modules",
           "^.git",
+          -- ".git",
         },
       },
       pickers = {
         find_files = {
           -- ignore_current_buffer = true,
-          find_command = { "rg", "--files", "--sortr=modified" },
+          find_command = { "rg", "--files", "--sortr=modified", "--glob=!.git/" },
           hidden = true,
         },
         live_grep = {
