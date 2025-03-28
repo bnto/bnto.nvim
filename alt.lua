@@ -11,7 +11,7 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 -- clear highlight on Escape
-keymap.set("n", "<ESC>", "<CMD>nohlsearch<CR>")
+keymap.set("n", "<ESC>", "<CMD>nohlsearch<CR>", { desc = "Clear Search highlighting" })
 
 -- keymaps shared with tmux
 keymap.set("n", "<C-f>f", "<cmd>silent !tmux neww ,tmux-session<CR>")
@@ -127,6 +127,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Install lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+---@diagnostic disable-next-line: undefined-field
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -144,7 +145,6 @@ vim.opt.rtp:prepend(lazypath)
 ---------------
 
 require("lazy").setup({
-
   -- Fuzzy File Finder
   {
     "ibhagwan/fzf-lua",
@@ -472,7 +472,6 @@ require("lazy").setup({
       },
     },
   },
-
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
@@ -521,7 +520,7 @@ require("lazy").setup({
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       { "j-hui/fidget.nvim", opts = {} },
-      "hrsh7th/cmp-nvim-lsp",
+      -- "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -539,7 +538,17 @@ require("lazy").setup({
               { buffer = event.buf, desc = "LSP: " .. desc }
             )
           end
-          map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+
+          map("gd", require("fzf-lua").lsp_definitions, "Goto Definition")
+          -- map('gr', require('fzf-lua').lsp_references, 'Goto References')
+          -- map('gI', require('fzf-lua').lsp_implementations, 'Goto Implementation')
+          -- map('<leader>D', require('fzf-lua').lsp_typedefs, 'Type Definition')
+          -- map('<leader>ds', require('fzf-lua').lsp_document_symbols, 'Document Symbols')
+          -- map('<leader>ws', require('fzf-lua').lsp_live_workspace_symbols, 'Workspace Symbols')
+          -- map('<leader>rn', vim.lsp.buf.rename, 'Rename')
+          -- map('<leader>ca', vim.lsp.buf.code_action, 'Code Action', { 'n', 'x' })
+          -- map("gD", vim.lsp.buf.declaration, "Goto Declaration")
+
           local function client_supports_method(client, method, bufnr)
             if vim.fn.has("nvim-0.11") == 1 then
               return client:supports_method(method, bufnr)
@@ -597,7 +606,7 @@ require("lazy").setup({
             [vim.diagnostic.severity.INFO] = "󰋽 ",
             [vim.diagnostic.severity.HINT] = "󰌶 ",
           },
-        } or {},
+        },
         virtual_text = {
           source = "if_many",
           spacing = 2,
@@ -613,11 +622,11 @@ require("lazy").setup({
         },
       })
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend(
-        "force",
-        capabilities,
-        require("cmp_nvim_lsp").default_capabilities()
-      )
+      -- capabilities = vim.tbl_deep_extend(
+      --   "force",
+      --   capabilities,
+      --   require("cmp_nvim_lsp").default_capabilities()
+      -- )
       local servers = {
         lua_ls = {
           settings = {
@@ -676,6 +685,7 @@ require("lazy").setup({
   -- Autocompletion
   {
     "hrsh7th/nvim-cmp",
+    enabled = false,
     event = "InsertEnter",
     dependencies = {
       {
