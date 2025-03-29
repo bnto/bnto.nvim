@@ -328,6 +328,35 @@ require("lazy").setup({
         })
     end,
   },
+  {
+    "echasnovski/mini.base16",
+    enabled = false,
+    version = false,
+    config = function()
+      require("mini.base16").setup({
+        palette = {
+          -- https://github.com/edunfelt/base16-rose-pine-scheme
+          scheme = "Rosé Pine Dawn",
+          base00 = "#faf4ed", -- Base
+          base01 = "#fffaf3", -- Surface
+          base02 = "#f2e9de", -- Overlay
+          base03 = "#9893a5", -- Muted
+          base04 = "#797593", -- Subtle
+          base05 = "#575279", -- Text
+          base06 = "#575279", -- Text
+          base07 = "#cecacd",
+          base08 = "#b4637a", -- Love
+          base09 = "#ea9d34", -- Gold
+          base0A = "#d7827e", -- Rose
+          base0B = "#286983", -- Pine
+          base0C = "#56949f", -- Foam
+          base0D = "#907aa9", -- Iris
+          base0E = "#ea9d34", -- Gold
+          base0F = "#cecacd",
+        },
+      })
+    end,
+  },
   -- E-ink colorscheme
   {
     "alexxGmZ/e-ink.nvim",
