@@ -711,7 +711,10 @@ require("lazy").setup({
   -- Autocompletion
   {
     "saghen/blink.cmp",
-    dependencies = { "rafamadriz/friendly-snippets" },
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      "moyiz/blink-emoji.nvim",
+    },
     version = "1.*",
     opts = {
       keymap = {
@@ -746,8 +749,23 @@ require("lazy").setup({
         default = {
           "lsp",
           "path",
+          "emoji",
           -- "snippets",
           -- "buffer",
+        },
+        providers = {
+          emoji = {
+            module = "blink-emoji",
+            name = "Emoji",
+            score_offset = 15,
+            opts = { insert = true },
+            should_show_items = function()
+              return vim.tbl_contains(
+                { "gitcommit", "markdown" },
+                vim.o.filetype
+              )
+            end,
+          },
         },
       },
       fuzzy = { implementation = "prefer_rust_with_warning" },
