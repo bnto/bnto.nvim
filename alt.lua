@@ -11,7 +11,12 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 -- clear highlight on Escape
-keymap.set("n", "<ESC>", "<CMD>nohlsearch<CR>", { desc = "Clear Search highlighting" })
+keymap.set(
+  "n",
+  "<ESC>",
+  "<CMD>nohlsearch<CR>",
+  { desc = "Clear Search highlighting" }
+)
 
 -- keymaps shared with tmux
 keymap.set("n", "<C-f>f", "<cmd>silent !tmux neww ,tmux-session<CR>")
@@ -193,6 +198,7 @@ require("lazy").setup({
     "mbbill/undotree",
     init = function()
       vim.g.undotree_WindowLayout = 2
+      vim.g.undotree_DiffAutoOpen = 0
       vim.g.undotree_ShortIndicators = 1
       vim.g.undotree_SetFocusWhenToggle = 1
       vim.g.undotree_HelpLine = 0
@@ -320,6 +326,23 @@ require("lazy").setup({
           border = "rounded",
         })
     end,
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      heading = {
+        icons = { "󰲡  ", "󰲣  ", "󰲥  ", "󰲧  ", "󰲩  ", "󰲫  " },
+      },
+      code = {
+        width = "block",
+        -- highlight = "RenderMarkdownH1Bg",
+        highlight_inline = "RenderMarkdownH1Bg",
+      },
+    },
   },
   -- Comments
   {
@@ -639,7 +662,6 @@ require("lazy").setup({
           },
         },
         harper_ls = {
-          -- enabled = true,
           enabled = false,
           filetypes = { "markdown" },
           settings = {
