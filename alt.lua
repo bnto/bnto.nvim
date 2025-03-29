@@ -187,6 +187,13 @@ require("lazy").setup({
       hls = {
         normal = "@none",
       },
+      files = {
+        hidden = true,
+        git_icons = true,
+      },
+      grep = {
+        hidden = false,
+      },
     },
   },
   -- AutoPairs
@@ -270,6 +277,29 @@ require("lazy").setup({
         },
       })
     end,
+  },
+  {
+    "stevearc/oil.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      default_file_explorer = true,
+      delete_to_trash = true,
+      view_options = {
+        show_hidden = true,
+      },
+      keymaps = {
+        ["<CR>"] = "actions.select",
+        ["q"] = "actions.close",
+      },
+      float = {
+        -- padding = 5,
+        max_width = 50,
+        border = "rounded",
+      },
+    },
+    keys = {
+      { "<leader>O", "<cmd>Oil --float<cr>", desc = "Open Oil File Explorer" },
+    },
   },
   -- Colorscheme
   {
