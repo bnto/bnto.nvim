@@ -175,6 +175,10 @@ require("lazy").setup({
         preview = {
           layout = "vertical",
         },
+        backdrop = 100,
+      },
+      hls = {
+        normal = "@none",
       },
     },
   },
@@ -305,6 +309,11 @@ require("lazy").setup({
 
       set_hl(0, "QuickFixLine", { bg = "#faf4ed", ctermbg = "NONE" })
       set_hl(0, "QuickFixLine", { fg = "#d7827e", ctermfg = "NONE" })
+
+      -- set_hl(0, "ColorColumn", { link = "CursorLine" })
+      set_hl(0, "ColorColumn", {})
+
+      set_hl(0, "BlinkCmpKind", { link = "Normal" })
 
       vim.lsp.handlers["textDocument/hover"] =
         vim.lsp.with(vim.lsp.handlers.hover, {
@@ -503,6 +512,17 @@ require("lazy").setup({
       { "williamboman/mason.nvim", opts = {} },
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
+      {
+        "j-hui/fidget.nvim",
+        opts = {
+          notification = {
+            window = {
+              winblend = 0,
+              border = "rounded",
+            },
+          },
+        },
+      },
       "saghen/blink.cmp",
     },
     config = function()
