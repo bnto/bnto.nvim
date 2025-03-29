@@ -182,23 +182,7 @@ require("lazy").setup({
   {
     "windwp/nvim-autopairs",
     event = { "InsertEnter" },
-    dependencies = {
-      "hrsh7th/nvim-cmp",
-    },
-    config = function()
-      local autopairs = require("nvim-autopairs")
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-      local cmp = require("cmp")
-
-      autopairs.setup({
-        check_ts = true,
-        ts_config = {
-          lua = { "string" },
-          javascript = { "template_string" },
-        },
-      })
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-    end,
+    opts = {},
   },
   -- Undotree Explorer
   {
@@ -348,13 +332,13 @@ require("lazy").setup({
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       formatters_by_ft = {
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        html = { "prettier" },
-        css = { "prettier" },
-        json = { "prettier" },
-        markdown = { "prettier" },
-        yaml = { "prettier" },
+        javascript = { "prettierd" },
+        typescript = { "prettierd" },
+        html = { "prettierd" },
+        css = { "prettierd" },
+        json = { "prettierd" },
+        -- markdown = { "prettier" },
+        -- yaml = { "prettier" },
         lua = { "stylua" },
       },
       -- format_on_save = {
@@ -519,8 +503,7 @@ require("lazy").setup({
       { "williamboman/mason.nvim", opts = {} },
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
-      { "j-hui/fidget.nvim", opts = {} },
-      -- "hrsh7th/cmp-nvim-lsp",
+      "saghen/blink.cmp",
     },
     config = function()
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -621,13 +604,11 @@ require("lazy").setup({
           end,
         },
       })
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      -- capabilities = vim.tbl_deep_extend(
-      --   "force",
-      --   capabilities,
-      --   require("cmp_nvim_lsp").default_capabilities()
-      -- )
+      local capabilities = require("blink.cmp").get_lsp_capabilities(
+        vim.lsp.protocol.make_client_capabilities()
+      )
       local servers = {
+        bashls = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -660,6 +641,7 @@ require("lazy").setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         "stylua",
+        "prettierd",
       })
       require("mason-tool-installer").setup({
         ensure_installed = ensure_installed,
@@ -683,6 +665,48 @@ require("lazy").setup({
     end,
   },
   -- Autocompletion
+  {
+    "saghen/blink.cmp",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    version = "1.*",
+    opts = {
+      keymap = {
+        preset = "default",
+        ["<C-z>"] = { "accept", "fallback" },
+      },
+      appearance = {
+        nerd_font_variant = "mono",
+      },
+      completion = {
+        menu = {
+          border = "rounded",
+          scrollbar = false,
+          winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:BlinkCmpMenuSelection,Search:None",
+          -- auto_show = false,
+        },
+        ghost_text = {
+          enabled = true,
+        },
+        documentation = {
+          auto_show = true,
+          window = {
+            border = "rounded",
+            winhighlight = "Normal:Normal,FloatBorder:Normal,EndOfBuffer:BlinkCmpDoc",
+          },
+        },
+      },
+      sources = {
+        default = {
+          "lsp",
+          "path",
+          -- "snippets",
+          -- "buffer",
+        },
+      },
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+    },
+    opts_extend = { "sources.default" },
+  },
   {
     "hrsh7th/nvim-cmp",
     enabled = false,
