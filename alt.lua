@@ -76,9 +76,13 @@ opt.autoindent = true
 -- load .editorconfig file
 vim.g.editorconfig = true
 
+-- set external program for gq{motion} line formatting
+-- opt.formatprg = "par -w80 -p0 -s0"
+
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
+-- opt.inccommand = 'split' -- automatically display substitution in split window
 
 -- line settings
 opt.cursorline = true
@@ -588,6 +592,12 @@ require("lazy").setup({
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
       },
     },
+  },
+  -- better dotnet LSP
+  {
+    "seblj/roslyn.nvim",
+    ft = "cs",
+    opts = {},
   },
   -- Main LSP Configuration
   {
