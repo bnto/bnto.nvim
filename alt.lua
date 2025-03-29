@@ -745,6 +745,12 @@ require("lazy").setup({
       cmdline = {
         enabled = false,
       },
+      signature = {
+        enabled = true,
+        window = {
+          border = "rounded",
+        },
+      },
       sources = {
         default = {
           "lsp",
