@@ -739,6 +739,9 @@ require("lazy").setup({
           },
         },
       },
+      cmdline = {
+        enabled = false,
+      },
       sources = {
         default = {
           "lsp",
