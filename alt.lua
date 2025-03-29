@@ -84,6 +84,8 @@ opt.smartcase = true
 opt.cursorline = true
 opt.scrolloff = 10
 opt.wrap = false
+opt.showmode = false
+opt.cmdheight = 0 -- hide the command line
 
 -- termguicolors
 opt.termguicolors = true
