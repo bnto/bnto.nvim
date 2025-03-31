@@ -164,7 +164,7 @@ require("lazy").setup({
       { "<leader>f", "<cmd>FzfLua files<cr>", desc = "Find files in cwd" },
       {
         "<leader>F",
-        "<cmd>FzfLua grep_project<cr>",
+        "<cmd>FzfLua live_grep<cr>",
         desc = "Grep word in cwd",
       },
       { "<leader>b", "<cmd>FzfLua buffers<cr>", desc = "Show current buffers" },
@@ -194,9 +194,12 @@ require("lazy").setup({
       files = {
         hidden = true,
         git_icons = true,
+        rg_opts = [[--sortr=modified --color=never --hidden --files -g "!.git"]],
       },
       grep = {
-        hidden = false,
+        -- hidden = false,
+        hidden = true,
+        rg_opts = "--sortr=modified --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
       },
     },
   },
