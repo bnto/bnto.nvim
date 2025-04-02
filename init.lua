@@ -287,6 +287,7 @@ require("lazy").setup({
   },
   {
     "stevearc/oil.nvim",
+    enabled = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       default_file_explorer = true,
@@ -306,6 +307,24 @@ require("lazy").setup({
     },
     keys = {
       { "<leader>O", "<cmd>Oil --float<cr>", desc = "Open Oil File Explorer" },
+    },
+  },
+  {
+    {
+      "echasnovski/mini.files",
+      version = "*",
+      opts = {
+        mappings = {
+          go_in_plus = "<space>",
+        },
+      },
+      keys = {
+        {
+          "<leader>O",
+          "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0), false)<cr>",
+          desc = "",
+        },
+      },
     },
   },
   -- Colorscheme
