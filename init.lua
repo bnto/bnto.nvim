@@ -89,7 +89,7 @@ opt.cursorline = true
 opt.scrolloff = 10
 opt.wrap = false
 opt.showmode = false
-opt.cmdheight = 0 -- hide the command line
+-- opt.cmdheight = 0 -- hide the command line
 
 -- termguicolors
 opt.termguicolors = true
@@ -156,7 +156,7 @@ vim.opt.rtp:prepend(lazypath)
 ---------------
 
 require("lazy").setup({
-  -- Fuzzy File Finder
+  -- # Fuzzy File Finder
   {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -203,13 +203,13 @@ require("lazy").setup({
       },
     },
   },
-  -- AutoPairs
+  -- # AutoPairs
   {
     "windwp/nvim-autopairs",
     event = { "InsertEnter" },
     opts = {},
   },
-  -- Undotree Explorer
+  -- # Undotree Explorer
   {
     "mbbill/undotree",
     init = function()
@@ -223,7 +223,7 @@ require("lazy").setup({
       { "<leader>u", "<cmd>UndotreeToggle<Cr>", desc = "Toggle Undotree" },
     },
   },
-  -- Nvim Tree File Explorer
+  -- # Nvim Tree File Explorer
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = "nvim-tree/nvim-web-devicons",
@@ -327,10 +327,10 @@ require("lazy").setup({
       },
     },
   },
-  -- Colorscheme
+  -- # Colorscheme
   {
     "rose-pine/neovim",
-    enabled = false,
+    -- enabled = false,
     name = "rose-pine",
     opts = {
       dim_inactive_windows = false,
@@ -383,10 +383,10 @@ require("lazy").setup({
       })
     end,
   },
-  -- E-ink colorscheme
+  -- # E-ink colorscheme
   {
     "alexxGmZ/e-ink.nvim",
-    -- enabled = false,
+    enabled = false,
     priority = 1000,
     opts = {},
     init = function()
@@ -431,7 +431,7 @@ require("lazy").setup({
       },
     },
   },
-  -- Comments
+  -- # Comments
   {
     "numToStr/Comment.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -445,18 +445,18 @@ require("lazy").setup({
     --   })
     -- end,
   },
-  -- Formatting
+  -- # Formatting
   {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       formatters_by_ft = {
         javascript = { "prettierd" },
-        typescript = { "prettierd" },
+        -- typescript = { "prettier" },
         html = { "prettierd" },
         css = { "prettierd" },
         json = { "prettierd" },
-        -- markdown = { "prettier" },
+        markdown = { "prettier" },
         -- yaml = { "prettier" },
         lua = { "stylua" },
       },
@@ -477,7 +477,7 @@ require("lazy").setup({
       },
     },
   },
-  -- Indent indicator
+  -- # Indent indicator
   {
     "lukas-reineke/indent-blankline.nvim",
     enabled = false,
@@ -487,7 +487,7 @@ require("lazy").setup({
       indent = { char = "|" },
     },
   },
-  -- Lualine
+  -- # Lualine
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -508,7 +508,7 @@ require("lazy").setup({
       },
     },
   },
-  -- Code Outline
+  -- # Code Outline
   {
     "stevearc/aerial.nvim",
     dependencies = {
@@ -535,7 +535,7 @@ require("lazy").setup({
       },
     },
   },
-  -- GitSigns
+  -- # GitSigns
   {
     "lewis6991/gitsigns.nvim",
     version = "0.8.1",
@@ -575,7 +575,7 @@ require("lazy").setup({
       },
     },
   },
-  -- Treesitter
+  -- # Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -605,7 +605,7 @@ require("lazy").setup({
       indent = { enable = true, disable = { "ruby" } },
     },
   },
-  -- Lazydev LSP for lua
+  -- # Lazydev LSP for lua
   {
     "folke/lazydev.nvim",
     ft = "lua",
@@ -615,13 +615,13 @@ require("lazy").setup({
       },
     },
   },
-  -- better dotnet LSP
+  -- # better dotnet LSP
   {
     "seblj/roslyn.nvim",
     ft = "cs",
     opts = {},
   },
-  -- Main LSP Configuration
+  -- # Main LSP Configuration
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -799,7 +799,7 @@ require("lazy").setup({
       })
     end,
   },
-  -- Autocompletion
+  -- # Autocompletion
   {
     "saghen/blink.cmp",
     dependencies = {
@@ -823,7 +823,7 @@ require("lazy").setup({
           -- auto_show = false,
         },
         ghost_text = {
-          enabled = true,
+          -- enabled = true,
         },
         documentation = {
           auto_show = true,
