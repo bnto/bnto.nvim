@@ -327,6 +327,10 @@ require("lazy").setup({
       },
     },
   },
+  {
+    "brenoprata10/nvim-highlight-colors",
+    opts = {},
+  },
   -- # Colorscheme
   {
     "rose-pine/neovim",
@@ -374,10 +378,10 @@ require("lazy").setup({
           base08 = "#b4637a", -- Love
           base09 = "#ea9d34", -- Gold
           base0A = "#d7827e", -- Rose
-          base0B = "#286983", -- Pine
+          base0E = "#286983", -- Pine
           base0C = "#56949f", -- Foam
           base0D = "#907aa9", -- Iris
-          base0E = "#ea9d34", -- Gold
+          base0B = "#ea9d34", -- Gold
           base0F = "#cecacd",
         },
       })
