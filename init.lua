@@ -310,20 +310,18 @@ require("lazy").setup({
     },
   },
   {
-    {
-      "echasnovski/mini.files",
-      version = "*",
-      opts = {
-        mappings = {
-          go_in_plus = "<space>",
-        },
+    "echasnovski/mini.files",
+    version = "*",
+    opts = {
+      mappings = {
+        go_in_plus = "<space>",
       },
-      keys = {
-        {
-          "<leader>O",
-          "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0), false)<cr>",
-          desc = "",
-        },
+    },
+    keys = {
+      {
+        "<leader>O",
+        "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0), false)<cr>",
+        desc = "",
       },
     },
   },
