@@ -18,12 +18,6 @@ keymap.set(
   { desc = "Clear Search highlighting" }
 )
 
--- keymaps shared with tmux
-keymap.set("n", "<C-f>f", "<cmd>silent !tmux neww ,tmux-session<CR>")
-keymap.set("n", "<C-f>z", "<cmd>silent !tmux neww zk edit -i<CR>")
-keymap.set("n", "<C-f>t", "<cmd>silent !tmux neww vit<CR>")
-keymap.set("n", "<C-f>g", "<cmd>silent !tmux neww lazygit<CR>")
-
 -- remove jumping through documents
 keymap.set("n", "<C-o>", "<Nop>")
 keymap.set("n", "<C-p>", "<Nop>")
@@ -619,7 +613,7 @@ require("lazy").setup({
       auto_install = true,
       highlight = {
         enable = true,
-        additional_vim_regex_highlighting = { "ruby" },
+        additional_vim_regex_highlighting = { "ruby", "markdown" },
       },
       indent = { enable = true, disable = { "ruby" } },
     },
@@ -659,6 +653,41 @@ require("lazy").setup({
         },
       },
       "saghen/blink.cmp",
+      {
+        "zk-org/zk-nvim",
+        config = function()
+          require("zk").setup({
+            picker = "fzf_lua",
+            picker_options = {
+              fzf_lua = {
+                winopts = {
+                  preview = {
+                    hidden = true,
+                  },
+                },
+              },
+            },
+            lsp = {
+              config = {
+                cmd = { "zk", "lsp" },
+                name = "zk",
+              },
+              auto_attach = {
+                enabled = true,
+                filetypes = { "markdown" },
+              },
+            },
+          })
+        end,
+        keys = {
+          {
+            "<leader>zk",
+            "<cmd>ZkNotes { sort = { 'random' } }<Cr>",
+            desc = "Search zk",
+          },
+          { "<leader>zt", "<cmd>ZkTags<Cr>", desc = "Search zk" },
+        },
+      },
     },
     config = function()
       vim.api.nvim_create_autocmd("LspAttach", {
