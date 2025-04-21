@@ -48,9 +48,6 @@ keymap.set("i", ",,", "<Esc>A,<Esc>")
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
 
--- Open file tree
-keymap.set("n", "<leader>O", "<CMD>Oil --float<CR>")
-
 ---------------
 --  Options  --
 ---------------
@@ -285,7 +282,7 @@ require("lazy").setup({
   },
   {
     "stevearc/oil.nvim",
-    enabled = false,
+    -- enabled = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       default_file_explorer = true,
@@ -295,6 +292,7 @@ require("lazy").setup({
       },
       keymaps = {
         ["<CR>"] = "actions.select",
+        ["<SPACE><SPACE>"] = "actions.select",
         ["q"] = "actions.close",
       },
       float = {
@@ -309,6 +307,7 @@ require("lazy").setup({
   },
   {
     "echasnovski/mini.files",
+    enabled = false,
     version = "*",
     opts = {
       mappings = {
@@ -485,7 +484,7 @@ require("lazy").setup({
     },
     keys = {
       {
-        "<leader><leader>f",
+        "<leader>=",
         function()
           require("conform").format({ async = true, lsp_format = "fallback" })
         end,
@@ -576,6 +575,8 @@ require("lazy").setup({
         end, "")
         map("n", "<leader>gu", gs.undo_stage_hunk)
         map("n", "<leader>gd", gs.diffthis)
+        map("n", "<leader>gn", gs.next_hunk)
+        map("n","<leader>gp", gs.prev_hunk)
         map("n", "<leader>gD", ":GlLog -- %<CR>")
       end,
     },
@@ -666,7 +667,7 @@ require("lazy").setup({
               fzf_lua = {
                 winopts = {
                   preview = {
-                    hidden = true,
+                    -- hidden = true,
                   },
                 },
               },
