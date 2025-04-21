@@ -3,6 +3,8 @@
 -- vim.cmd("let g:netrw_liststyle = 3")
 -- vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
 
+local light_mode = true
+
 ---------------
 --  Keymaps  --
 ---------------
@@ -342,7 +344,11 @@ require("lazy").setup({
       },
     },
     init = function()
-      vim.cmd.colorscheme("rose-pine-dawn")
+      if light_mode then
+        vim.cmd.colorscheme("rose-pine-dawn")
+      else
+        vim.cmd.colorscheme("rose-pine-moon")
+      end
 
       vim.cmd("highlight QuickFixLine guibg=#faf4ed ctermbg=none")
       vim.cmd("highlight QuickFixLine guifg=#d7827e ctermfg=none")
