@@ -595,7 +595,7 @@ require("lazy").setup({
         map("n", "<leader>gu", gs.undo_stage_hunk)
         map("n", "<leader>gd", gs.diffthis)
         map("n", "<leader>gn", gs.next_hunk)
-        map("n","<leader>gp", gs.prev_hunk)
+        map("n", "<leader>gp", gs.prev_hunk)
         map("n", "<leader>gD", ":GlLog -- %<CR>")
       end,
     },
