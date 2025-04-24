@@ -454,18 +454,8 @@ require("lazy").setup({
         -- highlight = "RenderMarkdownH1Bg",
         highlight_inline = "RenderMarkdownH1Bg",
       },
-      file_types = { "markdown", "vimwiki" },
+      file_types = { "markdown" },
     },
-  },
-  {
-    "vimwiki/vimwiki",
-    init = function()
-      vim.cmd(
-        "let g:vimwiki_list = [{'path': '', 'syntax': 'markdown', 'ext': 'md'}]"
-      )
-      vim.cmd("let g:vimwiki_global_ext = 0")
-    end,
-    -- enabled = false,
   },
   -- # Comments
   {
@@ -493,7 +483,6 @@ require("lazy").setup({
         css = { "prettierd" },
         json = { "prettierd" },
         markdown = { "prettier" },
-        vimwiki = { "prettier" },
         -- yaml = { "prettier" },
         lua = { "stylua" },
       },
@@ -585,7 +574,6 @@ require("lazy").setup({
       keymaps = {
         ["<space>"] = "actions.jump",
       },
-      vim.treesitter.language.register("markdown", "vimwiki"),
     },
   },
   -- # GitSigns
