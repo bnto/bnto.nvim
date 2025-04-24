@@ -706,7 +706,25 @@ require("lazy").setup({
         keys = {
           {
             "<leader>zk",
-            "<cmd>ZkNotes { sort = { 'random' } }<Cr>",
+            function()
+              require("zk").edit({ sort = { "random" } }, {
+                fzf_lua = {
+                  fzf_opts = {
+                    ["--header"] = require("fzf-lua").utils.ansi_codes.blue(
+                      "Ctrl-E: create a note with the query as title"
+                    ),
+                  },
+                  actions = {
+                    ["ctrl-e"] = function(_, opts)
+                      local query = opts.last_query or ""
+                      if query and query ~= "" then
+                        vim.cmd("ZkNew { title = [[" .. query .. "]] }")
+                      end
+                    end,
+                  },
+                },
+              })
+            end,
             desc = "Search zk",
           },
           { "<leader>zt", "<cmd>ZkTags<Cr>", desc = "Search zk" },
