@@ -341,6 +341,9 @@ require("lazy").setup({
       highlight_groups = {
         TelescopeSelection = { fg = "text", bg = "base" },
         TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
+        TabLineSel = { fg = "surface", bg = "rose" },
+        TabLineFill = { bg = "overlay" },
+        StatusLineNC = { fg = "muted", bg = "overlay" },
       },
     },
     init = function()
@@ -535,10 +538,25 @@ require("lazy").setup({
       },
       sections = {
         lualine_a = { { "mode" } },
-        lualine_c = { { "filename", path = 1 } },
+        lualine_c = {
+          {
+            "filename",
+            path = 1,
+            symbols = {
+              modified = "\u{EABC}",
+              readonly = "\u{F0221}",
+              -- unnamed = "",
+              -- newfile = "",
+            },
+          },
+        },
         lualine_x = { { "encoding" }, { "filetype" } },
         -- lualine_y = { "" },
         lualine_z = { "" },
+      },
+      inactive_sections = {
+        lualine_c = { { "filename", color = "StatusLineNC" } },
+        lualine_x = { { "progress", color = "StatusLineNC" } },
       },
     },
   },
