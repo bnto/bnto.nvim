@@ -531,11 +531,10 @@ require("lazy").setup({
   -- # Indent indicator
   {
     "lukas-reineke/indent-blankline.nvim",
-    enabled = false,
     event = { "BufReadpre", "BufNewFile" },
     main = "ibl",
     opts = {
-      indent = { char = "|" },
+      indent = { char = "┆" },
     },
   },
   -- # Lualine
