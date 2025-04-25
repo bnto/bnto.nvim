@@ -259,6 +259,31 @@ require("lazy").setup({
         git = {
           ignore = false,
         },
+        renderer = {
+          highlight_git = false,
+          icons = {
+            git_placement = "after",
+            web_devicons = {
+              file = {
+                color = false,
+              },
+              folder = {
+                color = false,
+              },
+            },
+            glyphs = {
+              git = {
+                unstaged = "M",
+                staged = "S",
+                unmerged = "",
+                renamed = "R",
+                untracked = "?",
+                deleted = "D",
+                ignored = "",
+              },
+            },
+          },
+        },
         actions = {
           open_file = {
             quit_on_open = true,
