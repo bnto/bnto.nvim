@@ -627,20 +627,16 @@ require("lazy").setup({
         map("n", "<leader>gd", gs.diffthis)
         map("n", "<leader>gn", gs.next_hunk)
         map("n", "<leader>gp", gs.prev_hunk)
-        map("n", "<leader>gD", ":GlLog -- %<CR>")
       end,
     },
     keys = {
-      {
-        "<leader>gg",
-        "<cmd>Git<Cr>",
-        desc = "Open Git Panel",
-      },
+      { "<leader>gg", "<cmd>Git<Cr>", desc = "Open Git Panel" },
       {
         "<leader>gD",
-        "<cmd>:GlLog -- %<cr>",
-        desc = "Diff git current buffer",
+        "<cmd>GlLog -- %<cr>",
+        desc = "Git diff current buffer",
       },
+      { "<leader>gl", "<cmd>Git log --oneline<Cr>", desc = "Open git log" },
     },
   },
   -- # Treesitter
