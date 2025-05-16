@@ -12,14 +12,6 @@ local light_mode = true
 vim.g.mapleader = " "
 local keymap = vim.keymap
 
--- clear highlight on Escape
-keymap.set(
-  "n",
-  "<ESC>",
-  "<CMD>nohlsearch<CR>",
-  { desc = "Clear Search highlighting" }
-)
-
 -- remove jumping through documents
 keymap.set("n", "<C-o>", "<Nop>")
 keymap.set("n", "<C-p>", "<Nop>")
@@ -187,7 +179,8 @@ require("lazy").setup({
       files = {
         hidden = true,
         git_icons = true,
-        rg_opts = [[--sortr=modified --color=never --hidden --files -g "!.git"]],
+        rg_opts = "--sortr=modified --color=never --hidden --files -g '!.git'",
+        fd_opts = "--color=never --hidden --exclude .git --type f --strip-cwd-prefix --exec-batch ls -t",
       },
       grep = {
         -- hidden = false,
@@ -253,7 +246,7 @@ require("lazy").setup({
       nvimtree.setup({
         on_attach = my_on_attach,
         filters = {
-          custom = { ".DS_Store", "node_modules" },
+          custom = { ".DS_Store", "node_modules", ".git" },
           dotfiles = false,
         },
         git = {
