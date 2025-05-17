@@ -1,8 +1,5 @@
 -- neovim configuration
 
--- vim.cmd("let g:netrw_liststyle = 3")
--- vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
-
 local light_mode = true
 
 require("keymaps")
@@ -66,7 +63,8 @@ require("lazy").setup({
       files = {
         hidden = true,
         git_icons = true,
-        rg_opts = [[--sortr=modified --color=never --hidden --files -g "!.git"]],
+        rg_opts = "--sortr=modified --color=never --hidden --files -g '!.git'",
+        fd_opts = "--color=never --hidden --exclude .git --type f --strip-cwd-prefix --exec-batch ls -t",
       },
       grep = {
         -- hidden = false,
@@ -132,7 +130,7 @@ require("lazy").setup({
       nvimtree.setup({
         on_attach = my_on_attach,
         filters = {
-          custom = { ".DS_Store", "node_modules" },
+          custom = { ".DS_Store", "node_modules", ".git" },
           dotfiles = false,
         },
         git = {
@@ -142,6 +140,9 @@ require("lazy").setup({
           highlight_git = false,
           icons = {
             git_placement = "after",
+            show = {
+              folder_arrow = true,
+            },
             web_devicons = {
               file = {
                 color = false,
@@ -151,6 +152,10 @@ require("lazy").setup({
               },
             },
             glyphs = {
+              folder = {
+                arrow_closed = " ",
+                arrow_open = " ",
+              },
               git = {
                 unstaged = "M",
                 staged = "S",
