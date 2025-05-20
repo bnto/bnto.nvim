@@ -457,6 +457,21 @@ require("lazy").setup({
       },
     },
   },
+  -- Notification
+  {
+    "folke/noice.nvim",
+    -- enabled = false,
+    event = "VeryLazy",
+    opts = {
+      cmdline = {
+        view = "cmdline",
+      },
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  },
   -- # Code Outline
   {
     "stevearc/aerial.nvim",
