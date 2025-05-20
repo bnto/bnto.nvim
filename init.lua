@@ -466,6 +466,11 @@ require("lazy").setup({
       cmdline = {
         view = "cmdline",
       },
+      lsp = {
+        hover = {
+          enabled = false,
+        },
+      },
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
