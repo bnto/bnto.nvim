@@ -126,6 +126,7 @@ require("lazy").setup({
         -- custom mappings
         vim.keymap.set("n", "<space>", api.node.open.edit, opts(""))
         vim.keymap.set("n", "h", api.node.navigate.parent_close, opts(""))
+        vim.keymap.set("n", "<esc>", api.tree.close, opts(""))
       end
       nvimtree.setup({
         on_attach = my_on_attach,
