@@ -479,8 +479,10 @@ require("lazy").setup({
       "MunifTanjim/nui.nvim",
       {
         "rcarriga/nvim-notify",
+        enabled = false,
         opts = {
-          render = "wrapped-compact",
+          render = "minimal",
+          stages = "static"
         },
       },
       {
