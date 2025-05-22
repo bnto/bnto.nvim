@@ -474,12 +474,20 @@ require("lazy").setup({
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
+      {
+        "rcarriga/nvim-notify",
+        opts = {
+          render = "wrapped-compact",
+        },
+      },
       {
         "m4xshen/hardtime.nvim",
+        -- enabled = false,
         lazy = false,
         dependencies = { "MunifTanjim/nui.nvim" },
-        opts = {},
+        opts = {
+          disable_mouse = false,
+        },
       },
     },
   },
