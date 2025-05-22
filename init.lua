@@ -205,6 +205,8 @@ require("lazy").setup({
         ["<CR>"] = "actions.select",
         ["<SPACE><SPACE>"] = "actions.select",
         ["q"] = "actions.close",
+        ["H"] = { "actions.parent", mode = "n" },
+        ["<ESC>"] = { "actions.close", mode = "n" },
       },
       float = {
         -- padding = 5,
