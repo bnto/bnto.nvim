@@ -577,6 +577,7 @@ require("lazy").setup({
         "bash",
         "lua",
         "luadoc",
+        "angular",
         -- "vim",
         -- "dockerfile",
         -- "gitignore",
@@ -590,6 +591,15 @@ require("lazy").setup({
       },
       indent = { enable = true, disable = { "ruby" } },
     },
+    config = function (_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+      vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+        pattern = { "*.component.html", "*.container.html" },
+        callback = function ()
+          vim.treesitter.start(nil, "angular")
+        end,
+      })
+    end
   },
   -- # Lazydev LSP for lua
   {
@@ -792,6 +802,14 @@ require("lazy").setup({
               },
             },
           },
+        },
+        angularls = {
+          cmd = { "ngserver", "--stdio", "--tsProbeLocations", ".", "--ngProbeLocations", "." },
+          on_new_config = function (new_config, _)
+            new_config.cmd_env = {
+              NG_DEBUG = "true",
+            }
+          end,
         },
         harper_ls = {
           enabled = false,
