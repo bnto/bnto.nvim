@@ -14,7 +14,7 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
@@ -220,23 +220,6 @@ require("lazy").setup({
     },
   },
   {
-    "echasnovski/mini.files",
-    enabled = false,
-    version = "*",
-    opts = {
-      mappings = {
-        go_in_plus = "<space>",
-      },
-    },
-    keys = {
-      {
-        "<leader>O",
-        "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0), false)<cr>",
-        desc = "",
-      },
-    },
-  },
-  {
     "brenoprata10/nvim-highlight-colors",
     opts = {},
   },
@@ -374,14 +357,6 @@ require("lazy").setup({
     "numToStr/Comment.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = {},
-    -- dependencies = {
-    --   "JoosepAlviste/nvim-ts-context-commentstring",
-    -- },
-    -- init = function()
-    --   require("Comment").setup({
-    --     pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-    --   })
-    -- end,
   },
   -- # Formatting
   {
@@ -457,42 +432,6 @@ require("lazy").setup({
       inactive_sections = {
         lualine_c = { { "filename", color = "StatusLineNC" } },
         lualine_x = { { "progress", color = "StatusLineNC" } },
-      },
-    },
-  },
-  -- Notification
-  {
-    "folke/noice.nvim",
-    -- enabled = false,
-    event = "VeryLazy",
-    opts = {
-      cmdline = {
-        view = "cmdline",
-      },
-      lsp = {
-        hover = {
-          enabled = false,
-        },
-      },
-    },
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      {
-        "rcarriga/nvim-notify",
-        enabled = false,
-        opts = {
-          render = "minimal",
-          stages = "static"
-        },
-      },
-      {
-        "m4xshen/hardtime.nvim",
-        -- enabled = false,
-        lazy = false,
-        dependencies = { "MunifTanjim/nui.nvim" },
-        opts = {
-          disable_mouse = false,
-        },
       },
     },
   },
@@ -591,31 +530,15 @@ require("lazy").setup({
       },
       indent = { enable = true, disable = { "ruby" } },
     },
-    config = function (_, opts)
+    config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
       vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
         pattern = { "*.component.html", "*.container.html" },
-        callback = function ()
+        callback = function()
           vim.treesitter.start(nil, "angular")
         end,
       })
-    end
-  },
-  -- # Lazydev LSP for lua
-  {
-    "folke/lazydev.nvim",
-    ft = "lua",
-    opts = {
-      library = {
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-      },
-    },
-  },
-  -- # better dotnet LSP
-  {
-    "seblj/roslyn.nvim",
-    ft = "cs",
-    opts = {},
+    end,
   },
   -- # Main LSP Configuration
   {
@@ -636,6 +559,22 @@ require("lazy").setup({
         },
       },
       "saghen/blink.cmp",
+      {
+        -- # Lazydev LSP for lua
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+          library = {
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          },
+        },
+      },
+      {
+        -- # better dotnet LSP
+        "seblj/roslyn.nvim",
+        ft = "cs",
+        opts = {},
+      },
       {
         "zk-org/zk-nvim",
         config = function()
@@ -804,8 +743,15 @@ require("lazy").setup({
           },
         },
         angularls = {
-          cmd = { "ngserver", "--stdio", "--tsProbeLocations", ".", "--ngProbeLocations", "." },
-          on_new_config = function (new_config, _)
+          cmd = {
+            "ngserver",
+            "--stdio",
+            "--tsProbeLocations",
+            ".",
+            "--ngProbeLocations",
+            ".",
+          },
+          on_new_config = function(new_config, _)
             new_config.cmd_env = {
               NG_DEBUG = "true",
             }
