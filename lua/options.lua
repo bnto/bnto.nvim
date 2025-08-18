@@ -76,3 +76,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank()
   end,
 })
+
+-- Keep folds on quit
+opt.foldmethod = "manual"
+vim.api.nvim_create_autocmd({"BufWinLeave"}, {
+  pattern = {"*.md"},
+  desc = "Save folds when closing file",
+  command = "mkview",
+})
+vim.api.nvim_create_autocmd({"BufWinEnter"}, {
+  pattern = {"*.md"},
+  desc = "Load folds when opening file",
+  command = "silent! loadview",
+})
