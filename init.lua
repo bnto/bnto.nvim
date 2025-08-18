@@ -553,7 +553,7 @@ require("lazy").setup({
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
       vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
-        pattern = { "*.component.html", "*.container.html" },
+        pattern = { "*.component.html" },
         callback = function()
           vim.treesitter.start(nil, "angular")
         end,
@@ -763,6 +763,7 @@ require("lazy").setup({
           },
         },
         angularls = {
+          filetypes = { "html" },
           cmd = {
             "ngserver",
             "--stdio",
