@@ -96,6 +96,7 @@ require("lazy").setup({
   -- # Restore last cursor position when reopening a file
   {
     "farmergreg/vim-lastplace",
+    enabled = false,
   },
   -- # Nvim Tree File Explorer
   {
