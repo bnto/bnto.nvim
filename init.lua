@@ -409,6 +409,22 @@ require("lazy").setup({
     -- event = "Colorscheme",
     opts = {
       options = {
+        theme = function()
+          local auto_theme_custom = require("lualine.themes.auto")
+          auto_theme_custom.normal.b.bg = "none"
+          auto_theme_custom.insert.b.bg = "none"
+          auto_theme_custom.visual.b.bg = "none"
+          auto_theme_custom.replace.b.bg = "none"
+          auto_theme_custom.command.b.bg = "none"
+          auto_theme_custom.inactive.b.bg = "none"
+          auto_theme_custom.normal.c.bg = "none"
+          auto_theme_custom.insert.c.bg = "none"
+          auto_theme_custom.visual.c.bg = "none"
+          auto_theme_custom.replace.c.bg = "none"
+          auto_theme_custom.command.c.bg = "none"
+          auto_theme_custom.inactive.c.bg = "none"
+          return auto_theme_custom
+        end,
         section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
         -- theme = "rose-pine",
