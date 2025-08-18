@@ -340,6 +340,7 @@ require("lazy").setup({
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
+      "jghauser/follow-md-links.nvim",
     },
     opts = {
       heading = {
