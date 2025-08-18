@@ -503,9 +503,11 @@ require("lazy").setup({
           end
         end, "")
         map("n", "<leader>gu", gs.undo_stage_hunk)
-        map("n", "<leader>gd", gs.diffthis)
-        map("n", "<leader>gn", gs.next_hunk)
-        map("n", "<leader>gp", gs.prev_hunk)
+        map("n", "<leader>gd", function()
+          gs.diffthis(nil, { vertical = false, split = "aboveleft" })
+        end)
+        map("n", "<leader>gj", gs.next_hunk)
+        map("n", "<leader>gk", gs.prev_hunk)
       end,
     },
     keys = {
