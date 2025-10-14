@@ -52,6 +52,7 @@ require("lazy").setup({
     },
     opts = {
       winopts = {
+        fullscreen = "true",
         preview = {
           layout = "vertical",
         },
@@ -240,6 +241,7 @@ require("lazy").setup({
         TabLineSel = { fg = "surface", bg = "rose" },
         TabLineFill = { bg = "overlay" },
         StatusLineNC = { fg = "muted", bg = "overlay" },
+        Visual = { bg = "muted" },
       },
     },
     init = function()
