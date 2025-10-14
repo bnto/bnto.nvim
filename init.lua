@@ -94,11 +94,6 @@ require("lazy").setup({
       { "<leader>u", "<cmd>UndotreeToggle<Cr>", desc = "Toggle Undotree" },
     },
   },
-  -- # Restore last cursor position when reopening a file
-  {
-    "farmergreg/vim-lastplace",
-    enabled = false,
-  },
   -- # Nvim Tree File Explorer
   {
     "nvim-tree/nvim-tree.lua",
