@@ -468,7 +468,9 @@ require("lazy").setup({
       },
     },
     opts = {
+      backends = { "markdown", "asciidoc", "man" },
       close_on_select = true,
+      autojump = "true",
       float = {
         relative = "win",
       },
