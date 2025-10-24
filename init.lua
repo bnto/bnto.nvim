@@ -70,7 +70,7 @@ require("lazy").setup({
       grep = {
         -- hidden = false,
         hidden = true,
-        rg_opts = "--sortr=modified --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
+        rg_opts = "--sortr=modified --column -n --no-heading --color=always --smart-case --max-columns=4096 -g '!.git' -e",
       },
     },
   },
