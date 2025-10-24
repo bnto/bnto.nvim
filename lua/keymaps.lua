@@ -9,6 +9,9 @@ local keymap = vim.keymap
 keymap.set("n", "<C-o>", "<Nop>")
 keymap.set("n", "<C-p>", "<Nop>")
 
+-- disable q:, use :<ctrl-f> instead
+keymap.set("n", "q:", "<Nop>")
+
 -- disable arrow key
 keymap.set("n", "<Up>", "<Nop>")
 keymap.set("n", "<Down>", "<Nop>")
